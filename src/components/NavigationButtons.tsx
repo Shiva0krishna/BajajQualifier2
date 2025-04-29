@@ -28,7 +28,6 @@ const NavigationButtons: React.FC<NavigationButtonsProps> = ({ isLastSection }) 
     
     if (isValid && currentSectionIndex < form.sections.length - 1) {
       setCurrentSectionIndex(currentSectionIndex + 1);
-      // Smooth scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -41,7 +40,6 @@ const NavigationButtons: React.FC<NavigationButtonsProps> = ({ isLastSection }) 
     
     if (isValid) {
       console.log('Form submitted with data:', formValues);
-      // Here you would typically send the data to your backend
       alert('Form submitted successfully! Check console for form data.');
     }
   };

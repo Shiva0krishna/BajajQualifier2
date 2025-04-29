@@ -20,18 +20,14 @@ const Login: React.FC = () => {
     setError(null);
 
     try {
-      // Try to register the user - if it fails, we'll still proceed
       try {
         await createUser(formData);
       } catch (error) {
-        // Ignore the error and continue with form fetch
         console.log('User might already exist, proceeding to fetch form');
       }
       
-      // Get the form structure
       const formResponse = await getForm(formData.rollNumber);
       
-      // Update context with user and form data
       setUser(formData);
       setForm(formResponse.form);
     } catch (error) {

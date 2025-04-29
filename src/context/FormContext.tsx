@@ -32,7 +32,6 @@ export const FormProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     section.fields.forEach((field) => {
       const value = formValues[field.fieldId];
       
-      // Check required fields
       if (field.required && 
           (value === undefined || 
            value === '' || 
@@ -41,14 +40,12 @@ export const FormProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         isValid = false;
       }
       
-      // Check minLength if value exists
       if (value && typeof value === 'string' && field.minLength && value.length < field.minLength) {
         newErrors[field.fieldId] = field.validation?.message || 
           `Minimum length is ${field.minLength} characters`;
         isValid = false;
       }
       
-      // Check maxLength if value exists
       if (value && typeof value === 'string' && field.maxLength && value.length > field.maxLength) {
         newErrors[field.fieldId] = field.validation?.message || 
           `Maximum length is ${field.maxLength} characters`;

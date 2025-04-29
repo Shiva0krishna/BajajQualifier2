@@ -1,12 +1,9 @@
-// Type definitions for the application
 
-// User types
 export interface User {
   rollNumber: string;
   name: string;
 }
 
-// Form types
 export interface FormResponse {
   message: string;
   form: Form;
@@ -45,7 +42,6 @@ export interface FormField {
   minLength?: number;
 }
 
-// Form values and errors
 export interface FormValues {
   [key: string]: string | string[] | boolean;
 }
